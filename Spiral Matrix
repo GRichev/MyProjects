@@ -1,0 +1,61 @@
+using System;
+
+class FillAndPrintMatrixD
+{
+    static void Main()
+    {
+        //Console.Write("Please input number of rows/columns: ");
+        //int n = int.Parse(Console.ReadLine());
+        int n = 5;
+        Console.WriteLine();
+        int rows = n;
+        int cols = n;
+        int[,] myMatrix = new int[n, n];
+        int counter = 1;
+
+        for (int rotation = 0; counter <= n * n; )
+            {
+                //Down.
+                for (int down = n - (rotation * 2), row = 0 + rotation, col = 0 + rotation; down > 0; down--)
+                {
+                    myMatrix[row, col] = counter;
+                    counter++;
+                    row++;
+                }
+ 
+                //Right.
+                for (int right = n - (1 + (rotation * 2)), row = n - (1 + rotation), col = 1 + rotation; right > 0; right--)
+                {
+                    myMatrix[row, col] = counter;
+                    counter++;
+                    col++;
+                }
+ 
+                //Up.
+                for (int up = n - (1 + (rotation * 2)), row = n - (2 + rotation), col = n - (1 + rotation); up > 0; up--)
+                {
+                    myMatrix[row, col] = counter;
+                    counter++;
+                    row--;
+                }
+ 
+                //Left.
+                for (int left = n - (2 + (rotation * 2)), row = 0 + rotation, col = n - (2 + rotation); left > 0; left--)
+                {
+                    myMatrix[row, col] = counter;
+                    counter++;
+                    col--;
+                }
+                rotation++;
+            }
+        for (int row = 0; row < myMatrix.GetLength(0); row++)
+        {
+            for (int col = 0; col < myMatrix.GetLength(1); col++)
+            {
+                Console.Write(" {0,2}", myMatrix[row, col]);
+            }
+            Console.WriteLine();
+        }
+        Console.WriteLine();
+    }
+}
