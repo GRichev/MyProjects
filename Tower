@@ -1,0 +1,73 @@
+using System;
+
+class BatGoikoTower
+{
+    static void Main()
+    {
+        //string input = Console.ReadLine();
+        //int lines = int.Parse(input);
+        int lines = 20;
+        int elementsOnLines = (lines * 2);
+        int center = elementsOnLines / 2;
+
+        for (int i = 1; i <= lines; i++)
+        {
+            int elPos = 1;
+            while (elPos <= elementsOnLines)
+            {
+                if ((elPos <= center - i) || (elPos > center + i))
+                {
+                    Console.Write(".");                  
+                    elPos++;
+                }
+                else
+                {
+                    for (int j = 0; j < i; j++)
+                    {
+                        if (j == 0)
+                        {
+                            Console.Write("/");
+                            elPos++;
+                        }
+                        else
+                        {
+                            if (i == 2 ^ i == 4 ^ i == 7 ^ i == 11 ^ i == 16 ^ i == 22 ^ i == 29 ^ i == 37)
+                            {
+                                Console.Write("-");
+                                elPos++;
+                            }
+                            else
+                            {
+                                Console.Write(".");
+                                elPos++;
+                            }
+                        }
+                    } 
+                   for (int j = i; j > 0; j--)
+                       {
+                        if (j == 1)
+                        {
+                            Console.Write("\\");
+                            elPos++;
+                        }
+                        else
+                        {
+                            if (i == 2 ^ i == 4 ^ i == 7 ^ i == 11 ^ i == 16 ^ i == 22 ^ i == 29 ^ i == 37)
+                            {
+                                Console.Write("-");
+                                elPos++;
+                            }
+                            else
+                            {
+                                Console.Write(".");
+                                elPos++;
+                            }
+                        }
+                    }
+                }
+            }
+           Console.WriteLine();
+        }
+    }
+}
+
